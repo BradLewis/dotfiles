@@ -18,3 +18,6 @@ key_bindings:
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
   - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
   - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
+
+env:
+  TERM: xterm-256color
