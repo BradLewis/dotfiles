@@ -1,0 +1,23 @@
+{
+	"groups": {
+		"active_window_status": { "fg": "solarized:blue",   "bg": "solarized:base02", "attrs": [] },
+		"window_status":        { "fg": "solarized:base1",  "bg": "solarized:base02", "attrs": [] },
+		"activity_status":      { "fg": "solarized:yellow", "bg": "solarized:base02", "attrs": [] },
+		"bell_status":          { "fg": "solarized:red",    "bg": "solarized:base02", "attrs": [] },
+		"window":               { "fg": "solarized:base1",  "bg": "solarized:base02", "attrs": [] },
+		"window:divider":       { "fg": "solarized:base01", "bg": "solarized:base02", "attrs": [] },
+		"window:current":       { "fg": "solarized:base3",  "bg": "solarized:base01", "attrs": [] },
+		"window_name":          { "fg": "solarized:base3",  "bg": "solarized:base01", "attrs": ["bold"] },
+		"session":              { "fg": "solarized:base3",  "bg": "solarized:base01", "attrs": [] },
+		"session:prefix":       { "fg": "solarized:base01", "bg": "solarized:base3",  "attrs": [] },
+		"cpu_load_percent": 			{"fg": "gray8",      "bg": "gray0",    "attrs": []},
+		"cpu_load_percent_gradient": 	{"fg": "green_yellow_orange_red",      "bg": "gray0",    "attrs": []},
+		"battery": 						{"fg": "gray8",      "bg": "gray0",    "attrs": []},
+		"battery_gradient": 			{"fg": "white_red",  "bg": "gray0",    "attrs": []},
+		"battery_full": 				{"fg": "red",  "bg": "gray0",    "attrs": []},
+		"battery_empty": 				{"fg": "white",  "bg": "gray0",    "attrs": []},
+		"mem_usage": 			{"fg": "gray8",      "bg": "gray0",    "attrs": []},
+		"mem_usage_percent": 	{"fg": "gray8",      "bg": "gray0",    "attrs": []},
+		"mem_usage_gradient": 	{"fg": "GREEN_Orange_red",      "bg": "gray0",    "attrs": []}
+	}
+}
