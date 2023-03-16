@@ -1,20 +1,8 @@
 return {
-  { "neovim/nvim-lspconfig" },
-  {
+  { "neovim/nvim-lspconfig", dependencies = {
     "simrat39/rust-tools.nvim",
-    opts = {
-      server = {
-        settings = {
-          ["rust-analyzer"] = {
-            check = {
-              command = "clippy",
-              extraArgs = { "--all", "--", "-W", "clippy::all" },
-            },
-          },
-        },
-      },
-    },
-  },
-  { "nvim-lua/plenary.nvim" },
-  { "mfussenegger/nvim-dap" },
+  } },
+  { "mfussenegger/nvim-dap", dependencies = {
+    "rcarriga/nvim-dap-ui",
+  } },
 }
