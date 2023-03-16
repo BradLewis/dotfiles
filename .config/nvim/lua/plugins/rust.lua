@@ -29,7 +29,8 @@ return {
       }
     end,
   },
-  { "mfussenegger/nvim-dap", dependencies = {
+  {
     "rcarriga/nvim-dap-ui",
-  } },
+    dependencies = { "mfussenegger/nvim-dap" },
+  },
 }

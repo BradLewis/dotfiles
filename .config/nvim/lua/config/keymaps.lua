@@ -7,7 +7,7 @@ require("which-key").register({
       name = "Debug",
       b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint" },
       l = {
-        "<cmd>lua require'dap.ext.vscode'.load_launchjs()<cr><cmd>lua require'dap'.continue()<cr>",
+        "<cmd>lua require'dap'.continue()<cr>",
         "Launch debug session",
       },
       t = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Terminate debug session" },
