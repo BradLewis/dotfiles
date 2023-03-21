@@ -12,10 +12,6 @@ require("which-key").register({
       },
       t = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Terminate debug session" },
     },
-    ["<F11>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
-    ["<F10>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
-    ["<F9>"] = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
-    ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
     r = {
       name = "Rust",
       h = { "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<cr>", "Hover actions" },
@@ -24,4 +20,9 @@ require("which-key").register({
       d = { "<cmd>wa<cr><cmd>lua require'rust-tools'.debuggables.debuggables()<cr>", "Debuggables" },
     },
   },
+  ["<F11>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
+  ["<F10>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
+  ["<F9>"] = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
+  ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+  ["<s-F5>"] = { "<cmd>lua require'dap'.disconnect({ terminateDebuggee = true })<cr>", "Disconnect" },
 })
