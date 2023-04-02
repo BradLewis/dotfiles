@@ -28,8 +28,9 @@ key_bindings:
   - { key: F5, mods: Control|Shift, chars: "\x1b[15;6;5~" }
   - { key: F5, mods: Control, chars: "\x1b[>15;5~" }
   - { key: F5, mods: Shift, chars: "\x1b[15;4~" }
-  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
-  - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
+  - { key: Return, mods: Control, chars: "\x1b[13;5u" }
+  - { key: Space, mods: Control, chars: "\x00"    }
 
 env:
   TERM: xterm-256color
