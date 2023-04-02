@@ -14,4 +14,9 @@ require("which-key").register({
   ["<C-l>"] = { "<cmd>NvimTmuxNavigateRight<cr>", "Go to right window" },
   ["<C-\\>"] = { "<cmd>NvimTmuxNavigateLastActive<cr>", "Go to last active window" },
   ["<C-Space>"] = { "<cmd>NvimTmuxNavigateNext<cr>", "Go to next window" },
+  ["<Leader>"] = {
+    w = {
+      f = { "<cmd>bp|bd #<cr>", "Close file" },
+    },
+  },
 })
