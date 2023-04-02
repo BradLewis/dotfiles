@@ -1,5 +1,4 @@
-return {
-  { "neovim/nvim-lspconfig" },
+local M = {
   {
     "simrat39/rust-tools.nvim",
     opts = function(_, opts)
@@ -30,3 +29,17 @@ return {
     end,
   },
 }
+
+require("which-key").register({
+  ["<leader>"] = {
+    r = {
+      name = "Rust",
+      h = { "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<cr>", "Hover actions" },
+      a = { "<cmd>lua require'rust-tools'.code_action_group.code_action_group()<cr>", "Code actions" },
+      r = { "<cmd>wa<cr><cmd>lua require'rust-tools'.runnables.runnables()<cr>", "Runnables" },
+      d = { "<cmd>wa<cr><cmd>lua require'rust-tools'.debuggables.debuggables()<cr>", "Debuggables" },
+    },
+  },
+})
+
+return M
