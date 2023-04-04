@@ -39,4 +39,10 @@ return {
     config = true,
     event = "VeryLazy",
   },
+  {
+    "phaazon/hop.nvim",
+    config = function()
+      require("hop").setup()
+    end,
+  },
 }
