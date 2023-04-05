@@ -1,8 +1,34 @@
+local function ensure_uri_scheme(uri)
+  if not vim.startswith(uri, "file://") then
+    return "file://" .. uri
+  end
+  return uri
+end
+
+local function is_in_workspace(uri)
+  uri = ensure_uri_scheme(uri)
+  local path = vim.uri_to_fname(uri)
+  local workspace_dir = vim.fn.getcwd()
+
+  return vim.startswith(path, workspace_dir)
+end
+
+local function filter_diagnostics(diagnostics)
+  local filtered_diagnostics = {}
+  for _, diagnostic in ipairs(diagnostics) do
+    if is_in_workspace(diagnostic.source) then
+      table.insert(filtered_diagnostics, diagnostic)
+    end
+  end
+  return filtered_diagnostics
+end
+
 local M = {
   {
     "simrat39/rust-tools.nvim",
     opts = function(_, opts)
       local rt = require("rust-tools")
+      local lspconfig = require("lspconfig")
 
       local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.9.0/"
       local codelldb_path = extension_path .. "adapter/codelldb"
@@ -21,6 +47,14 @@ local M = {
             },
           },
         },
+        root_dir = function(startpath)
+          local startpath_uri = vim.uri_from_fname(startpath)
+          if not is_in_workspace(startpath) then
+            return nil
+          end
+
+          return lspconfig.util.root_pattern("Cargo.toml", "rust-project.json")(startpath)
+        end,
       }
 
       opts.dap = {
