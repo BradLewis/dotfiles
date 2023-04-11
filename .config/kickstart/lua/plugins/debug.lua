@@ -1,86 +1,71 @@
-return {}
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
+local M = {
+  "mfussenegger/nvim-dap",
 
--- return {
---   -- NOTE: Yes, you can install new plugins here!
---   'mfussenegger/nvim-dap',
---
---   -- NOTE: And you can specify dependencies as well
---   dependencies = {
---     -- Creates a beautiful debugger UI
---     'rcarriga/nvim-dap-ui',
---
---     -- Installs the debug adapters for you
---     'williamboman/mason.nvim',
---     'jay-babu/mason-nvim-dap.nvim',
---
---     -- Add your own debuggers here
---     'leoluz/nvim-dap-go',
---   },
---
---   config = function()
---     local dap = require 'dap'
---     local dapui = require 'dapui'
---
---     require('mason-nvim-dap').setup {
---       -- Makes a best effort to setup the various debuggers with
---       -- reasonable debug configurations
---       automatic_setup = true,
---
---       -- You'll need to check that you have the required things installed
---       -- online, please don't ask me how to install them :)
---       ensure_installed = {
---         -- Update this to ensure that you have the debuggers for the langs you want
---         'delve',
---       },
---     }
---
---     -- You can provide additional configuration to the handlers,
---     -- see mason-nvim-dap README for more information
---     require('mason-nvim-dap').setup_handlers()
---
---     -- Basic debugging keymaps, feel free to change to your liking!
---     vim.keymap.set('n', '<F5>', dap.continue)
---     vim.keymap.set('n', '<F1>', dap.step_into)
---     vim.keymap.set('n', '<F2>', dap.step_over)
---     vim.keymap.set('n', '<F3>', dap.step_out)
---     vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
---     vim.keymap.set('n', '<leader>B', function()
---       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
---     end)
---
---     -- Dap UI setup
---     -- For more information, see |:help nvim-dap-ui|
---     dapui.setup {
---       -- Set icons to characters that are more likely to work in every terminal.
---       --    Feel free to remove or use ones that you like more! :)
---       --    Don't feel like these are good choices.
---       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
---       controls = {
---         icons = {
---           pause = '⏸',
---           play = '▶',
---           step_into = '⏎',
---           step_over = '⏭',
---           step_out = '⏮',
---           step_back = 'b',
---           run_last = '▶▶',
---           terminate = '⏹',
---         },
---       },
---     }
---
---     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
---     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
---     dap.listeners.before.event_exited['dapui_config'] = dapui.close
---
---     -- Install golang specific config
---     require('dap-go').setup()
---   end,
--- }
+  dependencies = {
+    {
+      "rcarriga/nvim-dap-ui",
+
+      config = function()
+        require("dapui").setup()
+      end,
+    },
+  },
+}
+
+function M.config()
+  local dap, dapui = require("dap"), require("dapui")
+  dapui.setup({})
+  dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
+
+  dap.adapters.lldb = {
+    type = "executable",
+    command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+    name = "lldb",
+  }
+
+  -- configure the adapter for Rust Debugging
+  dap.configurations.rust = {
+    {
+      name = "Launch Debug",
+      type = "rt_lldb",
+      request = "launch",
+      program = function()
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/" .. "", "file")
+      end,
+      cwd = "${workspaceFolder}",
+      stopOnEntry = false,
+      args = {},
+      initCommand = {},
+      runInTerminal = true,
+    },
+  }
+end
+
+require("which-key").register({
+  ["<leader>"] = {
+    d = {
+      name = "Debug",
+      b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint" },
+      l = {
+        "<cmd>lua require'dap'.continue()<cr>",
+        "Launch debug session",
+      },
+      t = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Terminate debug session" },
+    },
+  },
+  ["<F11>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
+  ["<F10>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
+  ["<F9>"] = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
+  ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+  ["<s-F5>"] = { "<cmd>lua require'dap'.disconnect({ terminateDebuggee = true })<cr>", "Disconnect" },
+})
+
+return M
