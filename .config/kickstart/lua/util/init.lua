@@ -1,4 +1,5 @@
 local M = {}
+local Util = require("lazy.core.util")
 M.root_patterns = { ".git", "lua" }
 
 ---@param on_attach fun(client, buffer)
@@ -87,6 +88,25 @@ function M.telescope(builtin, opts)
       end
     end
     require("telescope.builtin")[builtin](opts)
+  end
+end
+
+function M.float_term(cmd, opts)
+  opts = vim.tbl_deep_extend("force", {
+    size = { width = 0.9, height = 0.9 },
+  }, opts or {})
+  require("lazy.util").float_term(cmd, opts)
+end
+
+local enabled = true
+function M.toggle_diagnostics()
+  enabled = not enabled
+  if enabled then
+    vim.diagnostic.enable()
+    Util.info("Enabled diagnostics", { title = "Diagnostics" })
+  else
+    vim.diagnostic.disable()
+    Util.warn("Disabled diagnostics", { title = "Diagnostics" })
   end
 end
 
