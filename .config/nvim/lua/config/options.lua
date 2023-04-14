@@ -24,11 +24,11 @@ opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
+opt.scrolloff = 8 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
-opt.shortmess:append { W = true, I = true, c = true }
+opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
@@ -47,9 +47,9 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
-if vim.fn.has "nvim-0.9.0" == 1 then
+if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
-  opt.shortmess:append { C = true }
+  opt.shortmess:append({ C = true })
 end
 
 -- Fix markdown indentation settings
