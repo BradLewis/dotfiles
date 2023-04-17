@@ -21,6 +21,11 @@ return {
       { "<leader><space>", require("telescope.builtin").buffers, desc = "Find Files (root dir)" },
       { "<leader>?", require("telescope.builtin").oldfiles, desc = "[?] Find recently opened files" },
       -- files
+      {
+        "<leader>fa",
+        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+        desc = "Find all files (root dir)",
+      },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
       { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },

@@ -18,7 +18,11 @@ require("lazy").setup({
     { import = "plugins.lsp" },
     { import = "plugins.extras.lang" },
   },
+  install = { colorscheme = { "onedark", "catppuccin", "tokyonight" } },
 })
 require("config.autocmds")
 require("config.keymaps")
+
 vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("tokyonight")
