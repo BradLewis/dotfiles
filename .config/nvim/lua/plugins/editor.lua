@@ -116,4 +116,5 @@ return {
       { "<leader>ut", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
     },
   },
+  { "rmagatti/auto-session" },
 }

@@ -21,6 +21,7 @@ return {
             },
           },
         },
+        tailwindcss = {},
       },
       setup = {
         tsserver = function(_, opts)
@@ -52,12 +53,9 @@ return {
   },
   {
     "brenoprata10/nvim-highlight-colors",
-    config = function()
-      require("nvim-highlight-colors").setup({
-        render = "first_column",
-        enable_tailwind = true,
-        enable_named_colors = true,
-      })
-    end,
+    opts = {
+      enable_tailwind = true,
+      enable_named_colors = true,
+    },
   },
 }
