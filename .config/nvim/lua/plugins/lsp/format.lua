@@ -10,6 +10,7 @@ return {
         sources = {
           nls.builtins.formatting.fish_indent,
           nls.builtins.diagnostics.fish,
+          nls.builtins.code_actions.eslint_d,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
           nls.builtins.formatting.black,

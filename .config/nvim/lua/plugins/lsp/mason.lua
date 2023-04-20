@@ -12,6 +12,7 @@ return {
         "black",
         "prettierd",
         "rust-analyzer",
+        "eslint_d",
       },
     },
     config = function(_, opts)
