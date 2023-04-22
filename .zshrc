@@ -31,8 +31,8 @@ plugins=(
 	minikube
 	kubectl
 	helm
-  node
-  yarn
+        node
+	yarn
 	nvm
 	zsh-cargo-completion
 )

@@ -32,5 +32,8 @@ key_bindings:
   - { key: Return, mods: Control, chars: "\x1b[13;5u" }
   - { key: Space, mods: Control, chars: "\x00" }
 
+window:
+  option_as_alt: Both
+
 env:
   TERM: xterm-256color
