@@ -150,4 +150,11 @@ return {
       require("ufo").setup()
     end,
   },
+  { "f-person/git-blame.nvim" },
+  {
+    "VidocqH/lsp-lens.nvim",
+    config = function()
+      require("lsp-lens").setup()
+    end,
+  },
 }
