@@ -77,3 +77,4 @@ bindkey -s ^a "nvims\n"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
