@@ -13,7 +13,9 @@ local M = {
       adapters = {
         require("neotest-python"),
         require("neotest-plenary"),
-        require("neotest-rust"),
+        require("neotest-rust")({
+          dap_adapter = "lldb",
+        }),
       },
     })
   end,
