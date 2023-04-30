@@ -63,7 +63,12 @@ return {
       })
     end,
   },
-  { "okuuva/auto-save.nvim" },
+  {
+    "okuuva/auto-save.nvim",
+    config = function()
+      require("auto-save").setup()
+    end,
+  },
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
