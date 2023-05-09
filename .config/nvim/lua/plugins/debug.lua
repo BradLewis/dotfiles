@@ -38,7 +38,8 @@ function M.config()
       type = "rt_lldb",
       request = "launch",
       program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/" .. "", "file")
+        local default_file = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/" .. default_file, "file")
       end,
       cwd = "${workspaceFolder}",
       stopOnEntry = false,
