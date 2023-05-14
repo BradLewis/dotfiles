@@ -35,6 +35,7 @@ plugins=(
 	yarn
 	nvm
 	zsh-cargo-completion
+	golang
 )
 
 source $ZSH/oh-my-zsh.sh

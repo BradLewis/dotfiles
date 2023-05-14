@@ -13,6 +13,8 @@ return {
         "prettierd",
         "rust-analyzer",
         "eslint_d",
+        "gopls",
+        "codelldb",
       },
     },
     config = function(_, opts)

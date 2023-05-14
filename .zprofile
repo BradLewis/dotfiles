@@ -13,5 +13,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export DYLD_FRAMEWORK_PATH=/Applications/Xcode.app/Contents/SharedFrameworks
 
-export PATH=$PATH:$HOME/go/bin
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
 export CHROME_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium"
