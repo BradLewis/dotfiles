@@ -74,6 +74,9 @@ function nvims() {
 
 bindkey -s ^a "nvims\n"
 
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
 source $HOME/.zsh_aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
