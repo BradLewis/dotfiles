@@ -95,6 +95,7 @@ return {
         file_ignore_patterns = {
           ".git/",
           "node_modules",
+          "vendor",
         },
         prompt_prefix = " ",
         selection_caret = " ",
