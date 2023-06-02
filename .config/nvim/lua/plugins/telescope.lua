@@ -18,7 +18,7 @@ return {
         desc = "Fuzzy search current buffr",
       },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader><space>", require("telescope.builtin").buffers, desc = "Find Files (root dir)" },
+      { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
       { "<leader>?", require("telescope.builtin").oldfiles, desc = "[?] Find recently opened files" },
       -- files
       {
