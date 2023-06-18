@@ -1,0 +1,18 @@
+[alias]
+	co = checkout
+	st = status
+	br = branch
+  cleanup = "!git branch --merged | grep  -v '\\*\\|main' | xargs -n 1 -r git branch -d"
+	clean-branches = !git branch --merged | egrep -v \"(^\\*|main)\" | xargs -n 1 -r git branch -d
+[user]
+	name = Brad Lewis
+	email = 22850972+BradLewis@users.noreply.github.com
+	signingkey = 0AC0125A
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
