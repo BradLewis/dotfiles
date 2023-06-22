@@ -183,4 +183,26 @@ return {
       require("lsp-lens").setup()
     end,
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "q",
+        mode = { "n", "x", "o" },
+        function()
+          -- default options: exact mode, multi window, all directions, with a backdrop
+          require("flash").jump()
+        end,
+      },
+      {
+        "Q",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+      },
+    },
+  },
 }
