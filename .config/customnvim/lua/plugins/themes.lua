@@ -8,9 +8,12 @@ return {
     },
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "onedark",
-    },
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin",
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
   },
 }

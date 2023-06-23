@@ -4,6 +4,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
     version = false, -- telescope did only one release, so use HEAD for now
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
