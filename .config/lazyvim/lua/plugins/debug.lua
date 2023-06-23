@@ -38,7 +38,8 @@ function M.config()
       type = "rt_lldb",
       request = "launch",
       program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/" .. "", "file")
+        local default_file = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/" .. default_file, "file")
       end,
       cwd = "${workspaceFolder}",
       stopOnEntry = false,
@@ -59,6 +60,9 @@ require("which-key").register({
         "Launch debug session",
       },
       t = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Terminate debug session" },
+      o = { "<cmd>lua require'dapui'.open()<cr>", "Open DAP UI" },
+      c = { "<cmd>lua require'dapui'.close()<cr>", "Close DAP UI" },
+      w = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle DAP UI" },
     },
   },
   ["<F11>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },

@@ -1,0 +1,8 @@
+{
+    "workspace.library": [
+        "/Users/bradlewis/.local/share/nvim/lazy/neodev.nvim/types/nightly",
+        "/opt/homebrew/Cellar/neovim/HEAD-3688735/share/nvim/runtime/lua",
+        "/Users/bradlewis/.config/lazyvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
