@@ -35,6 +35,7 @@ local M = {
       local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib" -- MacOS: This may be .dylib
 
       opts.server = {
+        -- cmd = { "ra-multiplex" },
         on_attach = function(_, bufnr)
           -- Hover actions
           vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
