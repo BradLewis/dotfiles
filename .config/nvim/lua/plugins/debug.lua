@@ -3,6 +3,12 @@ local M = {
 
   dependencies = {
     {
+      "mfussenegger/nvim-dap-python",
+      config = function()
+        require("dap-python").setup()
+      end,
+    },
+    {
       "rcarriga/nvim-dap-ui",
 
       config = function()
