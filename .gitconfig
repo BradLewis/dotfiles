@@ -4,6 +4,10 @@
 	br = branch
   cleanup = "!git branch --merged | grep  -v '\\*\\|main' | xargs -n 1 -r git branch -d"
 	clean-branches = !git branch --merged | egrep -v \"(^\\*|main)\" | xargs -n 1 -r git branch -d
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+  lg = lg1
 [user]
 	name = Brad Lewis
 	email = 22850972+BradLewis@users.noreply.github.com
