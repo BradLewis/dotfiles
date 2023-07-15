@@ -67,6 +67,12 @@ return {
     config = true,
     event = "VeryLazy",
   },
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>ut", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
+    },
+  },
   { "rmagatti/auto-session" },
   {
     "kevinhwang91/nvim-ufo",
