@@ -48,11 +48,8 @@ then
 fi
 
 # User configuration
-export GPG_TTY=$(tty)
 
 export PATH="$HOME/.poetry/bin:$PATH"
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 SECRETS_FILE="$HOME/.secrets.sh"
 if [ -f $SECRETS_FILE ]; then
