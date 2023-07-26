@@ -2,6 +2,7 @@ return {
   { "rmagatti/auto-session" },
   {
     "okuuva/auto-save.nvim",
+    event = "VeryLazy",
     config = function()
       require("auto-save").setup()
     end,
@@ -123,15 +124,5 @@ return {
     config = function()
       require("lsp-lens").setup()
     end,
-  },
-  {
-    "folke/flash.nvim",
-    opts = {
-      modes = {
-        search = {
-          enabled = false,
-        },
-      },
-    },
   },
 }
