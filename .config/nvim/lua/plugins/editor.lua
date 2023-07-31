@@ -1,5 +1,4 @@
 return {
-  { "rmagatti/auto-session" },
   {
     "okuuva/auto-save.nvim",
     event = "VeryLazy",
@@ -70,11 +69,15 @@ return {
   },
   {
     "mbbill/undotree",
+    event = "VeryLazy",
     keys = {
       { "<leader>ut", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
     },
   },
-  { "rmagatti/auto-session" },
+  {
+    "rmagatti/auto-session",
+    event = "VeryLazy",
+  },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
@@ -118,7 +121,10 @@ return {
       require("ufo").setup()
     end,
   },
-  { "f-person/git-blame.nvim" },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+  },
   {
     "VidocqH/lsp-lens.nvim",
     config = function()
