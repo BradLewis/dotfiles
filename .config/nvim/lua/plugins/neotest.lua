@@ -7,6 +7,7 @@ local M = {
     "rouge8/neotest-rust",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-plenary",
+    "nvim-neotest/neotest-jest",
   },
   config = function()
     require("neotest").setup({
@@ -14,6 +15,7 @@ local M = {
         require("neotest-python"),
         require("neotest-plenary"),
         require("neotest-rust"),
+        require("neotest-jest"),
       },
     })
   end,

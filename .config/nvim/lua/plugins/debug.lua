@@ -1,5 +1,6 @@
 local M = {
   "mfussenegger/nvim-dap",
+  event = "VeryLazy",
 
   dependencies = {
     {
@@ -14,6 +15,10 @@ local M = {
       config = function()
         require("dapui").setup()
       end,
+    },
+    {
+      "mxsdev/nvim-dap-vscode-js",
+      config = function() end,
     },
   },
 }
