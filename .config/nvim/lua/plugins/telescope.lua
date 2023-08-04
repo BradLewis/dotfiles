@@ -10,5 +10,12 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "gR",
+        "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { '%.spec.ts' } })<cr>",
+        desc = "Go To References (ignoring test files)",
+      },
+    },
   },
 }
