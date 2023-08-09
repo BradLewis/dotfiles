@@ -38,7 +38,7 @@ return {
       require("nvim-surround").setup({})
     end,
   },
-  { "folke/neodev.nvim" },
+  { "folke/neodev.nvim", event = "VeryLazy" },
   {
     "andrewferrier/wrapping.nvim",
     config = function()
@@ -128,8 +128,5 @@ return {
   {
     "VidocqH/lsp-lens.nvim",
     event = "VeryLazy",
-    config = function()
-      require("lsp-lens").setup()
-    end,
   },
 }
