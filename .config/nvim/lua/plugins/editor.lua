@@ -128,6 +128,9 @@ return {
   },
   {
     "VidocqH/lsp-lens.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
+    config = function()
+      require("lsp-lens").setup({})
+    end,
   },
 }
