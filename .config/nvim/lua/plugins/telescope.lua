@@ -8,6 +8,7 @@ return {
           "node_modules",
           "vendor",
         },
+        dynamic_preview_title = true,
       },
     },
     keys = {
