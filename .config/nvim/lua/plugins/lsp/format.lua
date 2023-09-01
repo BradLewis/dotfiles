@@ -17,6 +17,7 @@ return {
           nls.builtins.formatting.isort,
           nls.builtins.formatting.prettierd,
           nls.builtins.formatting.golines,
+          nls.builtins.formatting.terraform_fmt,
         },
       }
     end,
