@@ -16,6 +16,7 @@ return {
           nls.builtins.formatting.black,
           nls.builtins.formatting.isort,
           nls.builtins.formatting.prettierd,
+          nls.builtins.formatting.golines,
         },
       }
     end,
