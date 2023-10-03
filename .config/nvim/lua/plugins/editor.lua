@@ -133,4 +133,14 @@ return {
       require("lsp-lens").setup({})
     end,
   },
+  {
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+      },
+    },
+  },
 }
