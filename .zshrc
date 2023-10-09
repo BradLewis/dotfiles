@@ -7,7 +7,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export PATH="/opt/homebrew/bin:$PATH"
-
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 plugins=(
 	git
 	python
@@ -31,9 +32,9 @@ plugins=(
 	minikube
 	kubectl
 	helm
-        node
+  node
 	yarn
-	nvm
+	zsh-nvm
 	zsh-cargo-completion
 	golang
 )
@@ -76,6 +77,10 @@ export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 
 source $HOME/.zsh_aliases
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
