@@ -126,13 +126,13 @@ return {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
   },
-  {
-    "VidocqH/lsp-lens.nvim",
-    event = "LspAttach",
-    config = function()
-      require("lsp-lens").setup({})
-    end,
-  },
+  -- {
+  --   "VidocqH/lsp-lens.nvim",
+  --   event = "LspAttach",
+  --   config = function()
+  --     require("lsp-lens").setup({})
+  --   end,
+  -- },
   {
     "folke/flash.nvim",
     opts = {
