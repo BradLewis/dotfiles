@@ -58,9 +58,10 @@ if [ -f $SECRETS_FILE ]; then
 fi
 
 alias nvim-lazy="NVIM_APPNAME=customnvim nvim"
+alias nvim-kickstart="NVIM_APPNAME=kickstartnvim nvim"
 
 function nvims() {
-  items=("default customnvim")
+  items=("default customnvim kickstartnvim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
