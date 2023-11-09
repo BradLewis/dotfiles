@@ -10,6 +10,11 @@ return {
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
   config = function()
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      automatic_installation = true,
+    })
+
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")

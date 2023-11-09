@@ -7,6 +7,7 @@ return {
   end,
   opts = {
     defaults = {
+      mode = { "n", "v" },
       ["<leader>t"] = { name = "+test" },
       ["<leader>s"] = { name = "+search" },
       ["<leader>h"] = { name = "+harpoon" },
@@ -14,6 +15,7 @@ return {
       ["<leader>q"] = { name = "+quit/session" },
       ["<leader>g"] = { name = "+git" },
       ["<leader>x"] = { name = "+trouble" },
+      ["<leader>c"] = { name = "+code" },
     },
   },
   config = function(_, opts)
