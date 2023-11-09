@@ -17,7 +17,7 @@ return {
         })
       end,
     },
-    "treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
   },
   config = function()
     vim.o.foldcolumn = "1" -- '0' is not bad
