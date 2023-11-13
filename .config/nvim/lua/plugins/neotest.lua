@@ -19,34 +19,15 @@ local M = {
       },
     })
   end,
-}
-
-require("which-key").register({
-  ["<leader>"] = {
-    t = {
-      name = "Test",
-      r = { "<cmd>lua require'neotest'.run.run()<cr>", "Run nearest test" },
-      f = {
-        "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>",
-        "Run tests in current file",
-      },
-      d = { "<cmd>lua require'neotest'.run.run({strategy = 'dap'})<cr>", "Debug nearest test" },
-      e = { "<cmd>lua require'neotest'.run.stop()<cr>", "Stop nearest test" },
-      s = {
-        name = "Summary",
-        o = { "<cmd>lua require'neotest'.summary.open()<cr>", "Open summary window" },
-        c = { "<cmd>lua require'neotest'.summary.close()<cr>", "Close summary window" },
-        t = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Toggle summary window" },
-      },
-      o = { "<cmd>lua require'neotest'.output.open({ enter = true })<cr>", "Open output window" },
-      p = {
-        name = "Output panel",
-        o = { "<cmd>lua require'neotest'.output_panel.open()<cr>", "Open output panel" },
-        c = { "<cmd>lua require'neotest'.output_panel.close()<cr>", "Close output panel" },
-        t = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Toggle output panel" },
-      },
-    },
+  keys = {
+    { "<leader>tr", "<cmd>lua require'neotest'.run.run()<cr>", desc = "Run nearest test" },
+    { "<leader>tf", "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", desc = "Run tests in current file" },
+    { "<leader>td", "<cmd>lua require'neotest'.run.run({strategy = 'dap'})<cr>", desc = "Debug nearest test" },
+    { "<leader>te", "<cmd>lua require'neotest'.run.stop()<cr>", desc = "Stop nearest test" },
+    { "<leader>ts", "<cmd>lua require'neotest'.summary.open()<cr>", desc = "Open summary window" },
+    { "<leader>to", "<cmd>lua require'neotest'.output.open({ enter = true })<cr>", desc = "Open output window" },
+    { "<leader>tp", "<cmd>lua require'neotest'.output_panel.open()<cr>", desc = "Open output panel" },
   },
-})
+}
 
 return M
