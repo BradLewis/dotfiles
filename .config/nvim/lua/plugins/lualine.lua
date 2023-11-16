@@ -73,6 +73,14 @@ return {
           },
         },
       },
+      -- tabline = {
+      --   lualine_b = {
+      --     {
+      --       "filename",
+      --       path = 1,
+      --     },
+      --   },
+      -- },
     })
   end,
 }
