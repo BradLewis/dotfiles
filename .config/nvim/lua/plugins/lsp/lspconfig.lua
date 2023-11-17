@@ -21,7 +21,7 @@ return {
       keymap.set(
         "n",
         "gR",
-        "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { '%.spec.ts' } })<cr>",
+        "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { '%.spec.ts', '%_test.go' } })<cr>",
         opts
       )
 
