@@ -4,6 +4,8 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -15,12 +17,12 @@ return {
       opts.buffer = bufnr
 
       opts.desc = "Show LSP references"
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
       opts.desc = "Go to references (ignoring test files)"
       keymap.set(
         "n",
-        "gR",
+        "gr",
         "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { '%.spec.ts', '%_test.go' } })<cr>",
         opts
       )

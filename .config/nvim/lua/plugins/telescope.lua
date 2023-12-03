@@ -1,3 +1,6 @@
+local ignored_file_patterns =
+  "{ 'node_modules', 'vendor', 'target', '.github', '.gitlab', '%.spec.ts', '%_test.go', '%-lock.json', 'Cargo.lock' }"
+
 return {
   "nvim-telescope/telescope.nvim",
   event = "BufWinEnter",
@@ -33,17 +36,21 @@ return {
     telescope.load_extension("fzf")
   end,
   keys = {
-    { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+    {
+      "<leader><space>",
+      "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
+      desc = "Find Files (ignoring files)",
+    },
     {
       "<leader>,",
       "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
       desc = "Switch Buffer",
     },
     -- find
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+    { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
     {
-      "<leader>fF",
-      "<cmd>lua require('telescope.builtin').files({file_ignore_patterns = { '%.spec.ts', '%_test.go' } })<cr>",
+      "<leader>ff",
+      "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
       desc = "Find files (ignoring test files)",
     },
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
@@ -52,11 +59,11 @@ return {
     { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
     { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    { "<leader>sG", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
     {
-      "<leader>sG",
-      "<cmd>lua require('telescope.builtin').live_grep({file_ignore_patterns = { '%.spec.ts', '%_test.go' } })<cr>",
-      desc = "Grep in files (ignoring test files)",
+      "<leader>sg",
+      "<cmd>lua require('telescope.builtin').live_grep({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
+      desc = "Grep in files (ignoring files)",
     },
     { "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" } },
   },
