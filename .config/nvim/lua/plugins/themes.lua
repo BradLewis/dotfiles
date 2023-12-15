@@ -6,7 +6,7 @@ return {
     require("onedark").setup({
       style = "deep",
       diagnostics = {
-        darker = false,
+        darker = true,
         undercurl = true,
         background = true,
       },
