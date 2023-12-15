@@ -45,7 +45,11 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
-  compinit
+  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	  compinit;
+  else
+	  compinit -C;
+  fi;
 fi
 
 # User configuration
