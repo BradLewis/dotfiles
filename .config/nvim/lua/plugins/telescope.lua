@@ -29,6 +29,7 @@ return {
           ".git/",
           "node_modules",
           "vendor",
+          "target",
         },
       },
     })
