@@ -8,6 +8,12 @@ Repository for managing my `dotfiles`. These `dotfiles` are managed with [yadm](
 - [Nerd Fonts](https://github.com/epk/SF-Mono-Nerd-Font)
 - [Themes](https://github.com/alacritty/alacritty-theme)
 
+### Tmux
+
+- [tmux](https://github.com/tmux/tmux)
+- [tmux-sessionizer](https://github.com/jrmoulton/tmux-sessionizer)
+- [tmux-powerline](https://github.com/erikw/tmux-powerline)
+
 ### Neovim
 
 - [Neovim](https://github.com/neovim/neovim)
