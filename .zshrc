@@ -1,7 +1,17 @@
+# zmodload zsh/zprof  
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+autoload -Uz compinit 
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
+
+DISABLE_AUTO_UPDATE="true" # disable ohmyzsh autoupdate
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -43,13 +53,6 @@ source $ZSH/oh-my-zsh.sh
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	  compinit;
-  else
-	  compinit -C;
-  fi;
 fi
 
 # User configuration
@@ -93,3 +96,4 @@ timezsh() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# zprof
