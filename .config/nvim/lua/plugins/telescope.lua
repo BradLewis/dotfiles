@@ -1,5 +1,5 @@
 local ignored_file_patterns =
-  "{ 'node_modules', 'vendor', 'target', '.github', '.gitlab', '%.spec.ts', '%_test.go', '%-lock.json', 'Cargo.lock' }"
+  "{ 'node_modules/', 'vendor/', 'target/', '.github/', '.gitlab/', '%.spec.ts', '%_test.go', '%-lock.json', 'Cargo.lock', '.terraform/' }"
 
 return {
   "nvim-telescope/telescope.nvim",
@@ -27,9 +27,9 @@ return {
         dynamic_preview_title = true,
         file_ignore_patterns = {
           ".git/",
-          "node_modules",
-          "vendor",
-          "target",
+          "node_modules/",
+          "vendor/",
+          "target/",
         },
       },
     })
@@ -48,14 +48,18 @@ return {
       desc = "Switch Buffer",
     },
     -- find
-    { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
-    {
-      "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
-      desc = "Find files (ignoring test files)",
-    },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+    -- {
+    --   "<leader>ff",
+    --   "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
+    --   desc = "Find files (ignoring test files)",
+    -- },
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" } },
+    {
+      "<leader>fr",
+      "<cmd>Telescope oldfiles<cr>",
+      { desc = "Fuzzy find recent files" },
+    },
     -- search
     { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
