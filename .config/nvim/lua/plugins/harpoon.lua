@@ -9,6 +9,7 @@ return {
     local harpoon = require("harpoon")
     harpoon.setup({})
     local conf = require("telescope.config").values
+    local action_state = require("telescope.actions.state")
     local function toggle_telescope(harpoon_files)
       local file_paths = {}
       for _, item in ipairs(harpoon_files.items) do
@@ -23,6 +24,17 @@ return {
           }),
           previewer = conf.file_previewer({}),
           sorter = conf.generic_sorter({}),
+          attach_mappings = function(_, map)
+            map({ "n", "i" }, "<C-d>", function(prompt_bufnr)
+              local curr_picker = action_state.get_current_picker(prompt_bufnr)
+
+              curr_picker:delete_selection(function(selection)
+                harpoon:list():removeAt(selection.index)
+              end)
+            end)
+
+            return true
+          end,
         })
         :find()
     end
