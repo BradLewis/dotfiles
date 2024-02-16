@@ -1,0 +1,12 @@
+node_modules/
+vendor/
+target/
+.github/
+.gitlab/
+*.spec.ts
+*_test.go
+*-lock.json
+Cargo.lock
+.terraform/
+.Trash/
+.eventcatalog-core/

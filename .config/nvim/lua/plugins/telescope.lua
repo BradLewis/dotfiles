@@ -1,6 +1,3 @@
-local ignored_file_patterns =
-  "{ 'node_modules/', 'vendor/', 'target/', '.github/', '.gitlab/', '%.spec.ts', '%_test.go', '%-lock.json', 'Cargo.lock', '.terraform/' }"
-
 return {
   "nvim-telescope/telescope.nvim",
   event = "BufWinEnter",
@@ -25,11 +22,16 @@ return {
           },
         },
         dynamic_preview_title = true,
-        file_ignore_patterns = {
-          ".git/",
-          "node_modules/",
-          "vendor/",
-          "target/",
+        vimgrep_arguments = {
+          "rg",
+          "--with-filename",
+          "--no-heading",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--ignore-file",
+          "~/.config/neovim/.rgignore",
         },
       },
     })
@@ -38,8 +40,8 @@ return {
   end,
   keys = {
     {
-      "<leader><space>",
-      "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
+      "<leader>ff",
+      "<cmd>lua require('telescope.builtin').find_files({no_ignore=true})<cr>",
       desc = "Find Files (ignoring files)",
     },
     {
@@ -48,27 +50,25 @@ return {
       desc = "Switch Buffer",
     },
     -- find
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
-    -- {
-    --   "<leader>ff",
-    --   "<cmd>lua require('telescope.builtin').find_files({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
-    --   desc = "Find files (ignoring test files)",
-    -- },
+    {
+      "<leader><space>",
+      "<cmd>Telescope find_files<cr>",
+      desc = "Find Files (root dir)",
+    },
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
     {
       "<leader>fr",
       "<cmd>Telescope oldfiles<cr>",
       { desc = "Fuzzy find recent files" },
     },
-    -- search
     { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
     { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    { "<leader>sG", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep in files" },
     {
-      "<leader>sg",
-      "<cmd>lua require('telescope.builtin').live_grep({file_ignore_patterns = " .. ignored_file_patterns .. " })<cr>",
-      desc = "Grep in files (ignoring files)",
+      "<leader>sG",
+      "<cmd>lua require('telescope.builtin').live_grep({additional_args=function() return { '--no-ignore' } end})<cr>",
+      desc = "Grep in all files",
     },
     { "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" } },
   },
