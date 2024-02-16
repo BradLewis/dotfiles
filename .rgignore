@@ -3,9 +3,9 @@ vendor/
 target/
 .github/
 .gitlab/
-*.spec.ts
-*_test.go
 *-lock.json
+*spec.ts
+*_test.go
 Cargo.lock
 .terraform/
 .Trash/
