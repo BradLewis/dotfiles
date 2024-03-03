@@ -37,7 +37,7 @@ return {
       keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
 
       opts.desc = "Show LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+      keymap.set("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
       opts.desc = "See available code actions"
       keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -46,10 +46,10 @@ return {
       keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 
       opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+      keymap.set("n", "<leader>sD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
       opts.desc = "Show line diagnostics"
-      keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+      keymap.set("n", "<leader>sd", vim.diagnostic.open_float, opts)
 
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -60,14 +60,11 @@ return {
       opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-      opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-
       opts.desc = "Show document symbols"
-      keymap.set("", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+      keymap.set("", "<leader>ds", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 
       opts.desc = "Show workspace symbols"
-      keymap.set("", "<leader>sS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
+      keymap.set("", "<leader>ws", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
     end
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()

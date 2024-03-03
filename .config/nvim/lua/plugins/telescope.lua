@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  event = "BufWinEnter",
+  event = "VimEnter",
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -16,9 +16,11 @@ return {
         path_display = { "truncate " },
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
+            ["<C-n>"] = actions.move_selection_next,
+            ["<C-p>"] = actions.move_selection_previous,
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-y>"] = actions.select_default,
+            ["<C-\\>"] = actions.select_vertical,
           },
         },
         dynamic_preview_title = true,
@@ -30,8 +32,6 @@ return {
           "--column",
           "--smart-case",
           "--hidden",
-          "--ignore-file",
-          "~/.config/neovim/.rgignore",
         },
       },
     })
