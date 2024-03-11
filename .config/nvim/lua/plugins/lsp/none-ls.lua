@@ -21,6 +21,7 @@ return {
         "isort",
         "golines",
         "terraform_fmt",
+        "rust_analyzer",
       },
     })
 
@@ -48,7 +49,7 @@ return {
         formatting.isort,
         formatting.golines,
         formatting.terraform_fmt,
-        formatting.rustfmt,
+        -- formatting.rustfmt,
         -- diagnostics.eslint_d.with({ -- js/ts linter
         --   condition = function(utils)
         --     return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
