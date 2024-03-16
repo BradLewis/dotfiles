@@ -10,3 +10,4 @@ Cargo.lock
 .terraform/
 .Trash/
 .eventcatalog-core/
+build/
