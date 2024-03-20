@@ -1,0 +1,18 @@
+--hidden
+
+# follow symbolic links
+--follow
+
+# don't ignore things like .gitignore
+# --no-ignore
+
+# --glob=!{.git,node_modules,vendor,dist}
+# --glob=!{Trash,Library,.Trash,.cache,.cargo}
+#
+# --glob=!*.{lock}
+# --glob=!{package-lock.json}
+
+--max-columns=10000
+--smart-case
+
+# --sort=path

@@ -11,3 +11,4 @@ Cargo.lock
 .Trash/
 .eventcatalog-core/
 build/
+Library/

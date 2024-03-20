@@ -20,6 +20,7 @@ local M = {
       "mxsdev/nvim-dap-vscode-js",
       config = function() end,
     },
+    { "nvim-neotest/nvim-nio" },
   },
 }
 
