@@ -1,6 +1,7 @@
 node_modules/
 vendor/
 target/
+.git/
 .github/
 .gitlab/
 *-lock.json

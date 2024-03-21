@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 
 local map = vim.keymap
 
--- window management
 map.set("n", "<leader>|", "<C-w>v", { desc = "Split window vertically" })
 map.set("n", "<leader>_", "<C-w>s", { desc = "Split window horizontally" })
 map.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
