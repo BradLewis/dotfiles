@@ -70,8 +70,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
@@ -107,23 +105,6 @@ return {
           end,
         })
       end,
-      -- configure graphql language server
-      ["graphql"] = function()
-        lspconfig.graphql.setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      -- configure emmet language server
-      ["emmet_ls"] = function()
-        lspconfig.emmet_ls.setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-        })
-      end,
-      -- configure lua server (with special settings)
       ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
           capabilities = capabilities,
@@ -140,6 +121,30 @@ return {
                   [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                   [vim.fn.stdpath("config") .. "/lua"] = true,
                 },
+              },
+            },
+          },
+        })
+      end,
+      ["rust_analyzer"] = function()
+        lspconfig.rust_analyzer.setup({
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format({ bufnr = bufnr })
+              end,
+            })
+          end,
+          settings = {
+            ["rust-analyzer"] = {
+              checkOnSave = {
+                command = "clippy",
               },
             },
           },
