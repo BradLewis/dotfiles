@@ -44,7 +44,7 @@ return {
     end, { desc = "Open harpoon window" })
   end,
   keys = {
-    { "<leader>hm", "<cmd>lua require('harpoon'):list():append()<cr>", desc = "Mark file with harpoon" },
+    { "<leader>hm", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Mark file with harpoon" },
     { "<leader>hn", "<cmd>lua require('harpoon'):list():next()<cr>", desc = "Go to next harpoon mark" },
     { "<leader>hp", "<cmd>lua require('harpoon'):list():prev()<cr>", desc = "Go to previous harpoon mark" },
     { "<leader>ht", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Toggle quick menu" },
