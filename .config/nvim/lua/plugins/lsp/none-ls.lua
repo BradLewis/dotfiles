@@ -19,7 +19,6 @@ return {
         "black",
         "eslint_d",
         "isort",
-        "golines",
         "terraform_fmt",
         "rust_analyzer",
       },
