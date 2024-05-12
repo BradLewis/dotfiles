@@ -20,7 +20,7 @@ return {
         "eslint_d",
         "isort",
         "terraform_fmt",
-        "rust_analyzer",
+        -- "rust_analyzer",
       },
     })
 
@@ -39,7 +39,9 @@ return {
         formatting.isort,
         formatting.black,
         formatting.isort,
-        formatting.golines,
+        formatting.golines.with({
+          extra_args = { "-m", "128" },
+        }),
         formatting.terraform_fmt,
       },
       on_attach = function(current_client, bufnr)
