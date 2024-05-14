@@ -16,7 +16,8 @@ map.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
-map.set("n", "<leader>ee", "oif err != nil {<CR>}<ESC>Oreturn err<ESC>", { desc = "Insert go err handling" })
-
 map.set("v", "<", "<gv", { desc = "Shift left" })
 map.set("v", ">", ">gv", { desc = "Shift right" })
+
+map.set("n", "<M-,>", "<c-w>5<")
+map.set("n", "<M-.>", "<c-w>5>")

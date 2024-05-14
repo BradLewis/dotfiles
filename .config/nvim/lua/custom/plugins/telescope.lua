@@ -34,9 +34,11 @@ return {
           "--hidden",
         },
       },
+      extensions = {
+        fzf = {},
+        wrap_results = true,
+      },
     })
-
-    telescope.load_extension("fzf")
   end,
   keys = {
     {
@@ -49,7 +51,6 @@ return {
       "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
       desc = "Switch Buffer",
     },
-    -- find
     {
       "<leader><space>",
       "<cmd>Telescope find_files<cr>",
@@ -61,15 +62,16 @@ return {
       "<cmd>Telescope oldfiles<cr>",
       { desc = "Fuzzy find recent files" },
     },
-    { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-    { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-    { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep in files" },
+    { '<leader>s"', "<cmd>Telescope registers<cr>",                                desc = "Registers" },
+    { "<leader>sa", "<cmd>Telescope autocommands<cr>",                             desc = "Auto Commands" },
+    { "<leader>so", "<cmd>Telescope vim_options<cr>",                              desc = "Options" },
+    { "<leader>sg", "<cmd>Telescope live_grep<cr>",                                desc = "Grep in files" },
     {
       "<leader>sG",
       "<cmd>lua require('telescope.builtin').live_grep({additional_args=function() return { '--no-ignore' } end})<cr>",
       desc = "Grep in all files",
     },
-    { "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" } },
+    { "<leader>sw", "<cmd>Telescope grep_string<cr>",               { desc = "Find string under cursor in cwd" } },
+    { "<leader>/",  "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current buffer" } },
   },
 }

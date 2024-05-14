@@ -33,3 +33,5 @@ opt.undofile = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.g.python3_host_prog = vim.env.HOME .. "/.virtualenvs/nvim/bin/python"
