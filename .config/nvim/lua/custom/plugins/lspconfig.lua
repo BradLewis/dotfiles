@@ -21,11 +21,9 @@ return {
 
           map("gd", require("telescope.builtin").lsp_definitions, "Go to definition")
 
-          map(
-            "gr",
-            "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { '%.spec.ts', '%_test.go' } })<cr>",
-            "Go to references (ignoring test files)"
-          )
+          map("gr", require("telescope.builtin").lsp_references, "Go to references")
+
+          -- map("gR", require("telescope.builtin").lsp_references, "Go to references")
 
           map("gI", require("telescope.builtin").lsp_implementations, "Go to implementation")
 
