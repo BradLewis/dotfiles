@@ -66,7 +66,7 @@ return {
       local servers = {
         gopls = {},
         -- rust_analyzer = {},
-        tsserver = {},
+        -- tsserver = {},
 
         lua_ls = {
           settings = {
