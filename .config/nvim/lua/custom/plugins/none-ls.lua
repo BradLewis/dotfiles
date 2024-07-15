@@ -29,6 +29,19 @@ return {
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+    -- register odinfmt with null-ls
+    local odinfmt = {
+      name = "odinfmt",
+      method = require("null-ls.methods").internal.FORMATTING,
+      filetypes = { "odin" },
+      generator = null_ls.formatter({
+        command = "sh",
+        args = { "-c", "odinfmt", "-w", "$FILENAME" },
+        to_stdin = true,
+      }),
+    }
+    null_ls.register(odinfmt)
+
     null_ls.setup({
       root_dir = null_ls_utils.root_pattern(
         ".null-ls-root",
@@ -50,6 +63,7 @@ return {
           extra_args = { "-m", "128" },
         }),
         formatting.terraform_fmt,
+        -- formatting.odinfmt,
       },
       on_attach = function(current_client, bufnr)
         if current_client.supports_method("textDocument/formatting") then
