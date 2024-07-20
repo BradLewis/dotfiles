@@ -50,29 +50,23 @@ return {
           runInTerminal = true,
         },
       }
-      require("which-key").register({
-        ["<leader>"] = {
-          d = {
-            name = "Debug",
-            b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint" },
-            l = {
-              "<cmd>lua require'dap'.continue()<cr>",
-              "Launch debug session",
-            },
-            t = {
-              "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>",
-              "Terminate debug session",
-            },
-            o = { "<cmd>lua require'dapui'.open()<cr>", "Open DAP UI" },
-            c = { "<cmd>lua require'dapui'.close()<cr>", "Close DAP UI" },
-            w = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle DAP UI" },
-          },
+      require("which-key").add({
+        { "<F10>",      "<cmd>lua require'dap'.step_over()<cr>",         desc = "Step over" },
+        { "<F11>",      "<cmd>lua require'dap'.step_into()<cr>",         desc = "Step into" },
+        { "<F5>",       "<cmd>lua require'dap'.continue()<cr>",          desc = "Continue" },
+        { "<F9>",       "<cmd>lua require'dap'.step_out()<cr>",          desc = "Step out" },
+        { "<leader>d",  group = "Debug" },
+        { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
+        { "<leader>dc", "<cmd>lua require'dapui'.close()<cr>",           desc = "Close DAP UI" },
+        { "<leader>dl", "<cmd>lua require'dap'.continue()<cr>",          desc = "Launch debug session" },
+        { "<leader>do", "<cmd>lua require'dapui'.open()<cr>",            desc = "Open DAP UI" },
+        {
+          "<leader>dt",
+          "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>",
+          desc = "Terminate debug session",
         },
-        ["<F11>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step into" },
-        ["<F10>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step over" },
-        ["<F9>"] = { "<cmd>lua require'dap'.step_out()<cr>", "Step out" },
-        ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-        ["<s-F5>"] = { "<cmd>lua require'dap'.disconnect({ terminateDebuggee = true })<cr>", "Disconnect" },
+        { "<leader>dw", "<cmd>lua require'dapui'.toggle()<cr>",                               desc = "Toggle DAP UI" },
+        { "<s-F5>",     "<cmd>lua require'dap'.disconnect({ terminateDebuggee = true })<cr>", desc = "Disconnect" },
       })
     end,
   },

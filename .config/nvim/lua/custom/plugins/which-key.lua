@@ -8,19 +8,19 @@ return {
   opts = {
     defaults = {
       mode = { "n", "v" },
-      ["<leader>t"] = { name = "+test" },
-      ["<leader>s"] = { name = "+search" },
-      ["<leader>h"] = { name = "+harpoon" },
-      ["<leader>f"] = { name = "+files" },
-      ["<leader>q"] = { name = "+quit/session" },
-      ["<leader>g"] = { name = "+git" },
-      ["<leader>x"] = { name = "+trouble" },
-      ["<leader>c"] = { name = "+code" },
+      { "<leader>c", group = "code" },
+      { "<leader>f", group = "files" },
+      { "<leader>g", group = "git" },
+      { "<leader>h", group = "harpoon" },
+      { "<leader>q", group = "quit/session" },
+      { "<leader>s", group = "search" },
+      { "<leader>t", group = "test" },
+      { "<leader>x", group = "trouble" },
     },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.register(opts.defaults)
+    wk.add(opts.defaults)
   end,
 }
