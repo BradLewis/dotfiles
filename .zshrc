@@ -1,8 +1,9 @@
 # zmodload zsh/zprof  
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+setopt ignore_eof
 
 autoload -Uz compinit 
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
@@ -97,3 +98,5 @@ timezsh() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # zprof
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
