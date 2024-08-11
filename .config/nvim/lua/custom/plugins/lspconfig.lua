@@ -65,6 +65,9 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.gleam.setup({})
       lspconfig.ols.setup({})
+      lspconfig.rust_analyzer.setup({
+        on_attach = require("custom.helpers.format").format_on_save,
+      })
 
       local servers = {
         gopls = {},
@@ -97,10 +100,6 @@ return {
       require("mason-lspconfig").setup({
         handlers = {
           function(server_name)
-            -- rust analyzer is handled by the rustaceannvim plugin
-            if server_name == "rust_analyzer" then
-              return
-            end
             local server = servers[server_name] or {}
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
             require("lspconfig")[server_name].setup(server)
