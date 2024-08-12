@@ -21,3 +21,9 @@ map.set("v", ">", ">gv", { desc = "Shift right" })
 
 map.set("n", "<M-,>", "<c-w>5<")
 map.set("n", "<M-.>", "<c-w>5>")
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["signature_help"], {
+  border = "single",
+  close_events = { "CursorMoved", "BufHidden" },
+})
+map.set("i", "<c-s>", vim.lsp.buf.signature_help)
