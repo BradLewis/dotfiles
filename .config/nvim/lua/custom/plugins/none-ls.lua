@@ -40,6 +40,18 @@ return {
     }
     null_ls.register(odinfmt)
 
+    local rustfmt = {
+      name = "rustfmt",
+      method = require("null-ls.methods").internal.FORMATTING,
+      filetypes = { "rust" },
+      generator = null_ls.formatter({
+        command = "rustfmt",
+        args = { "--emit=stdout", "--edition=2024" },
+        to_stdin = true,
+      }),
+    }
+    null_ls.register(rustfmt)
+
     null_ls.setup({
       root_dir = null_ls_utils.root_pattern(
         ".null-ls-root",
