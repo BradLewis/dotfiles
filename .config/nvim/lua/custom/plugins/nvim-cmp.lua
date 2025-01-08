@@ -67,5 +67,7 @@ return {
         luasnip.jump(-1)
       end
     end, { silent = true })
+
+    require("custom.snippets.go")
   end,
 }
