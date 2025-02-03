@@ -69,5 +69,6 @@ return {
     end, { silent = true })
 
     require("custom.snippets.go")
+    require("custom.snippets.rust")
   end,
 }
