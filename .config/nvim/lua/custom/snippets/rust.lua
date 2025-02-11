@@ -14,11 +14,12 @@ ls.add_snippets("rust", {
     "logmaperr",
     fmta(
       [[
-    map_err(|err| <level>!("<message>: {}", err));
+    map_err(|err| <level>!(error = %<err>, "<message>"));
   ]],
       {
         level = i(1, "error"),
-        message = i(2),
+        err = i(2, "err"),
+        message = i(3),
       }
     )
   ),
@@ -26,7 +27,7 @@ ls.add_snippets("rust", {
     "error",
     fmta(
       [[
-    error!(error = format!("{:#}", <err>), "<message>");
+    error!(error = %<err>, "<message>");
   ]],
       {
         err = i(1, "err"),
