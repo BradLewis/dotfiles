@@ -13,3 +13,4 @@ Cargo.lock
 .eventcatalog-core/
 build/
 Library/
+*.snap
