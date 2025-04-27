@@ -10,6 +10,8 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
 
       { "folke/neodev.nvim", opts = {} },
+
+      { "towolf/vim-helm", ft = "helm" },
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -49,11 +51,27 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
       local lspconfig = require("lspconfig")
       lspconfig.gleam.setup({})
       lspconfig.ols.setup({})
+      lspconfig.ccls.setup({
+        init_options = {
+          compilationDatabaseDirectory = "build",
+        },
+      })
       lspconfig.rust_analyzer.setup({
         on_attach = require("custom.helpers.format").format_on_save,
+      })
+
+      lspconfig.helm_ls.setup({
+        settings = {
+          ["helm-ls"] = {
+            yamlls = {
+              path = "yaml-language-server",
+            },
+          },
+        },
       })
 
       local servers = {
