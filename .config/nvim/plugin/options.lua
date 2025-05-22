@@ -33,6 +33,9 @@ opt.undofile = true
 
 opt.mousemodel = "extend"
 
+opt.list = true
+opt.listchars = { trail = "~", tab = "  " }
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
