@@ -25,6 +25,8 @@ return {
 
           map("gr", require("telescope.builtin").lsp_references, "Go to references")
 
+          map("gt", require("telescope.builtin").lsp_type_definitions, "Go to type definition")
+
           -- map("gR", require("telescope.builtin").lsp_references, "Go to references")
 
           map("gI", require("telescope.builtin").lsp_implementations, "Go to implementation")
