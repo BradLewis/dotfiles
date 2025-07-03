@@ -27,3 +27,4 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["
   close_events = { "CursorMoved", "BufHidden" },
 })
 map.set("i", "<c-s>", vim.lsp.buf.signature_help)
+map.set("n", "<leader>fd", vim.lsp.buf.format)
