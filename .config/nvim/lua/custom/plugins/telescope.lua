@@ -39,6 +39,8 @@ return {
         wrap_results = true,
       },
     })
+
+    require('telescope').load_extension('fzf')
   end,
   keys = {
     {
