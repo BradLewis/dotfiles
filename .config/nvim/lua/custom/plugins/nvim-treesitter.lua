@@ -8,6 +8,14 @@ return {
     },
     config = function()
       local treesitter = require("nvim-treesitter.configs")
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.odin = {
+        install_info = {
+          url = "~/repos/tree-sitter-odin",
+          files = { "src/parser.c", "src/scanner.c" },
+          generate_requires_npm = false,
+        },
+      }
 
       -- configure treesitter
       treesitter.setup({ -- enable syntax highlighting
