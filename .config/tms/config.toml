@@ -1,0 +1,12 @@
+bookmarks = ["/Users/bradlewis/.config/nvim"]
+
+[[search_dirs]]
+path = "/Users/bradlewis/repos"
+depth = 10
+
+[[search_dirs]]
+path = "/Users/bradlewis/repos/tmux-sessionizer/src"
+depth = 10
+
+[shortcuts]
+ctrl-y = "confirm"
